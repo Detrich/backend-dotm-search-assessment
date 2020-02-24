@@ -10,7 +10,6 @@ __author__ = "Detrich"
 import argparse
 import os
 import zipfile
-import re
 
 
 parser = argparse.ArgumentParser()
@@ -22,8 +21,7 @@ args = parser.parse_args()
 def decodeDotm(root, name):
     dotm = zipfile.ZipFile(os.path.join(root, name))
     content = dotm.read('word/document.xml').decode('utf-8')
-    cleaned = re.sub('<(.|\n)*?>', '', content)
-    return cleaned
+    return content
 
 
 def main(dir, text):
