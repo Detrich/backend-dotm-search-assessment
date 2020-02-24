@@ -32,8 +32,8 @@ def main(dir, text):
         TotalFoundCounter = 0
         print("Searching directory ./" + root + " for " + text + " ...")
         for name in files:
-            dotmFile = decodeDotm(root, name)
             if name.endswith(".dotm"):
+                dotmFile = decodeDotm(root, name)
                 TotalFileCounter += 1
                 if text in dotmFile:
                     textIndex = dotmFile.index(text)
